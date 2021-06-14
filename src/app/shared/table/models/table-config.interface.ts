@@ -1,5 +1,10 @@
 export interface IRowData {
 	id: number;
 	name: string;
-	bod: Date | string;
+	dob: Date | string;
+}
+
+export interface IColumnData {
+  header: string;
+  fieldName: string;
 }
