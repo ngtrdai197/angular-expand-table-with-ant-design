@@ -9,10 +9,14 @@ import { TbHeaderDirective } from './table/directives/tb-header.directive';
 import { PickValuePipe } from './table/pick-value.pipe';
 
 const DIRECTIVES = [TbColumnDirective, TbCellDirective, TbHeaderDirective];
+const COMPONENTS = [TableComponent];
+const PIPES = [PickValuePipe];
+
+const DELEXS = [...COMPONENTS, ...DIRECTIVES, ...PIPES];
 
 @NgModule({
-	declarations: [TableComponent, ...DIRECTIVES, PickValuePipe],
+	declarations: DELEXS,
 	imports: [CommonModule, NzTableModule],
-	exports: [TableComponent, ...DIRECTIVES],
+	exports: DELEXS,
 })
 export class SharedModule {}
