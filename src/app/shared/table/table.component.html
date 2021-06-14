@@ -1,0 +1,33 @@
+<nz-table #table [nzData]="rows">
+	<thead class="custom-thead">
+		<tr>
+			<th *ngFor="let column of columns">
+				<ng-container *ngIf="column.tbHeader; else headerDefault">
+					<ng-container
+						*ngTemplateOutlet="column.tbHeader.template"
+					></ng-container>
+				</ng-container>
+				<ng-template #headerDefault>
+					{{ column.header }}
+				</ng-template>
+			</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr *ngFor="let data of table?.data">
+			<td *ngFor="let col of columns">
+				<ng-container *ngIf="col.tbCell; else cellDefault">
+					<ng-container
+						*ngTemplateOutlet="
+							col.tbCell.template;
+							context: { $implicit: data }
+						"
+					></ng-container>
+				</ng-container>
+				<ng-template #cellDefault>
+					{{ data | pickValue: col.fieldName }}</ng-template
+				>
+			</td>
+		</tr>
+	</tbody>
+</nz-table>
