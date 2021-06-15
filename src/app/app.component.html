@@ -1,5 +1,5 @@
 <app-table [tbRows]="tableData.tbRows" [tbPageIndex]="tableData.tbPageIndex" [tbPageSize]="tableData.tbPageSize"
-	[tbTotal]="tableData.tbTotal" (tbPageIndexChanged)="onPageIndexChanged($event)" [tbLoading]="tbLoading">
+	[tbTotal]="tableData.tbTotal" (tbPageIndexChanged)="onPageIndexChanged($event)" [tbLoading]="tbLoading" [tbFrontPagination]="true">
 	<app-tb-column header="ID" fieldName="id"> </app-tb-column>
 	<app-tb-column header="Name" fieldName="name"> </app-tb-column>
 	<app-tb-column header="Day of birth" fieldName="dob">
