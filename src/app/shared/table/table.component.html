@@ -3,9 +3,7 @@
 		<tr>
 			<th *ngFor="let column of columns">
 				<ng-container *ngIf="column.tbHeader; else headerDefault">
-					<ng-container
-						*ngTemplateOutlet="column.tbHeader.template"
-					></ng-container>
+					<ng-container *ngTemplateOutlet="column.tbHeader.template"></ng-container>
 				</ng-container>
 				<ng-template #headerDefault>
 					{{ column.header }}
@@ -17,16 +15,12 @@
 		<tr *ngFor="let data of table?.data">
 			<td *ngFor="let col of columns">
 				<ng-container *ngIf="col.tbCell; else cellDefault">
-					<ng-container
-						*ngTemplateOutlet="
+					<ng-container *ngTemplateOutlet="
 							col.tbCell.template;
 							context: { $implicit: data }
-						"
-					></ng-container>
+						"></ng-container>
 				</ng-container>
-				<ng-template #cellDefault>
-					{{ data | pickValue: col.fieldName }}</ng-template
-				>
+				<ng-template #cellDefault>{{ data | pickValue: col.fieldName }}</ng-template>
 			</td>
 		</tr>
 	</tbody>

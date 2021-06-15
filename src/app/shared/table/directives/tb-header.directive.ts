@@ -1,10 +1,8 @@
-import {Directive, TemplateRef} from '@angular/core';
+import { Directive, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[appTableHeader]'
+	selector: '[appTableHeader]',
 })
 export class TbHeaderDirective {
-
-  constructor(public template: TemplateRef<unknown>) { }
-
+	constructor(public template: TemplateRef<unknown>) {}
 }

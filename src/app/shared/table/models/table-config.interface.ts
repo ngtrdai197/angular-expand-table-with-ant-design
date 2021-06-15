@@ -5,6 +5,6 @@ export interface IRowData {
 }
 
 export interface IColumnData {
-  header: string;
-  fieldName: string;
+	header: string;
+	fieldName: string;
 }
