@@ -1,4 +1,5 @@
-<app-table [rows]="rows">
+<app-table [tbRows]="tableData.tbRows" [tbPageIndex]="tableData.tbPageIndex" [tbPageSize]="tableData.tbPageSize"
+	[tbTotal]="tableData.tbTotal" (tbPageIndexChanged)="onPageIndexChanged($event)" [tbLoading]="tbLoading">
 	<app-tb-column header="ID" fieldName="id"> </app-tb-column>
 	<app-tb-column header="Name" fieldName="name"> </app-tb-column>
 	<app-tb-column header="Day of birth" fieldName="dob">
@@ -6,7 +7,7 @@
 			<strong>Birthday</strong>
 		</ng-template>
 		<ng-template appTableCell let-row>
-			{{ row["dob"] | date: 'fullDate' }}
+			<i class="text-blue-300">{{ row["dob"] | date: 'fullDate' }}</i>
 		</ng-template>
 		<ng-template></ng-template>
 	</app-tb-column>

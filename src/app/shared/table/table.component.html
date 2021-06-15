@@ -1,4 +1,7 @@
-<nz-table #table [nzData]="rows">
+<nz-table #table [nzData]="tbRows" [nzTotal]="tbTotal" [nzPageIndex]="tbPageIndex" [nzPageSize]="tbPageSize"
+	(nzPageIndexChange)="tbPageIndexChanged.emit($event)" [nzLoading]="tbLoading"
+	[nzFrontPagination]="tbFrontPagination" [nzPageSizeOptions]="tbPagaSizeOptions" [nzShowSizeChanger]="true"
+	(nzPageSizeChange)="tbPageIndexChanged.emit($event)">
 	<thead class="custom-thead">
 		<tr>
 			<th *ngFor="let column of columns">
@@ -11,9 +14,9 @@
 			</th>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody class="tb-cus-tbody">
 		<tr *ngFor="let data of table?.data">
-			<td *ngFor="let col of columns">
+			<td *ngFor="let col of columns" class="tb-cus-td">
 				<ng-container *ngIf="col.tbCell; else cellDefault">
 					<ng-container *ngTemplateOutlet="
 							col.tbCell.template;
